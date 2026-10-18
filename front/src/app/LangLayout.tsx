@@ -1,3 +1,4 @@
+import * as m from 'motion/react-m'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation, useParams } from 'react-router'
 import Drawer from '../components/Drawer'
@@ -69,7 +70,16 @@ function Shell({ lang }: { lang: Lang }) {
           <Library collapsed={collapsed} onToggle={toggleSidebar} />
         </aside>
         <main ref={mainRef} className="flex min-w-0 flex-1 flex-col overflow-y-auto rounded-lg bg-surface">
-          <Outlet />
+          {/* Keyed on the path so each page fades in; query changes (search, filters) don't. */}
+          <m.div
+            key={pathname}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="flex flex-1 flex-col"
+          >
+            <Outlet />
+          </m.div>
         </main>
       </div>
 
