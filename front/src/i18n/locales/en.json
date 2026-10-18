@@ -86,5 +86,16 @@
     "previous": "Previous image",
     "next": "Next image",
     "counter": "{{current}} / {{total}}"
+  },
+  "about": {
+    "bio": "Bio",
+    "skills": "Skills",
+    "experience": "Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "hobbies": "Hobbies",
+    "present": "Present",
+    "viewCertificate": "View certificate",
+    "newTab": "opens in a new tab"
   }
 }
