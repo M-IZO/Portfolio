@@ -45,5 +45,33 @@
     "title": "Bio",
     "subtitle": "Parcours, compétences et CV",
     "downloadCv": "Télécharger le CV"
+  },
+  "home": {
+    "projects": "Projets",
+    "filterLabel": "Filtrer par tag",
+    "all": "Tous",
+    "sortLabel": "Trier par",
+    "sort": {
+      "newest": "Plus récents",
+      "oldest": "Plus anciens",
+      "az": "A → Z",
+      "za": "Z → A"
+    },
+    "results_one": "{{count}} projet",
+    "results_other": "{{count}} projets",
+    "resultsFor": "pour « {{query}} »",
+    "emptyTitle": "Aucun projet ne correspond",
+    "emptyText": "Essayez une autre recherche ou retirez des filtres.",
+    "reset": "Réinitialiser les filtres",
+    "status": "Recherche en cours",
+    "aboutMe": "À propos de moi",
+    "columns": {
+      "title": "Titre",
+      "tags": "Tags",
+      "year": "Année"
+    },
+    "position": "Recherche",
+    "duration": "Durée",
+    "availableFrom": "Disponible dès"
   }
 }
