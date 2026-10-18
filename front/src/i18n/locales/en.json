@@ -21,5 +21,29 @@
   },
   "placeholder": {
     "text": "Lorem ipsum dolor sit amet."
+  },
+  "search": {
+    "label": "Search projects",
+    "placeholder": "Search projects",
+    "clear": "Clear search"
+  },
+  "library": {
+    "title": "Projects",
+    "all": "All",
+    "filter": "Filter projects by tag",
+    "empty": "No project with this tag yet.",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar",
+    "scrollLeft": "Scroll tags left",
+    "scrollRight": "Scroll tags right"
+  },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "aboutLink": {
+    "title": "Bio",
+    "subtitle": "Experience, skills and CV",
+    "downloadCv": "Download CV"
   }
 }
