@@ -6,7 +6,7 @@ function About() {
   useDocumentTitle(t('nav.about'))
 
   return (
-    <section>
+    <section className="p-6">
       <h1 className="text-3xl font-bold">{t('nav.about')}</h1>
       <p className="text-muted">{t('placeholder.text')}</p>
     </section>
