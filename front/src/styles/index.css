@@ -5,7 +5,7 @@
 
 /* Palette: dark is the default, `.light` on <html> overrides it. */
 @theme {
-  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Roboto Variable', ui-sans-serif, system-ui, sans-serif;
 
   --color-bg: #110a1c;
   --color-surface: #1a1129;
