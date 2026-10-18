@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
+/* Palette: dark is the default, `.light` on <html> overrides it. */
+@theme {
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #110a1c;
+  --color-surface: #1a1129;
+  --color-elevated: #251838;
+  --color-hover: #31204a;
+  --color-border: #3a2756;
+  --color-accent: #9147ff;
+  --color-accent-hover: #b07cff;
+  --color-text: #ffffff;
+  --color-muted: #b3a6c9;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Cards rely on colour in dark mode, on a soft shadow in light mode. */
+  --card-shadow: none;
+}
+
+:root.light {
+  color-scheme: light;
+
+  --color-bg: #e6dcf4;
+  --color-surface: #f5f0fb;
+  --color-elevated: #e2d5f4;
+  --color-hover: #d5c2ef;
+  --color-border: #c9b5e6;
+  --color-accent: #7a2ee6;
+  --color-accent-hover: #6420c4;
+  --color-text: #1a1129;
+  --color-muted: #5a4c70;
+
+  --card-shadow: 0 1px 2px rgb(26 17 41 / 0.08), 0 4px 14px rgb(26 17 41 / 0.1);
+}
+
+@utility shadow-card {
+  box-shadow: var(--card-shadow);
+}
+
+@layer base {
+  body {
+    @apply bg-bg font-sans text-text antialiased;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
