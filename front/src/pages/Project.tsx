@@ -8,7 +8,7 @@ function Project() {
   useDocumentTitle(slug)
 
   return (
-    <section>
+    <section className="p-6">
       <h1 className="text-3xl font-bold">{slug}</h1>
       <p className="text-muted">{t('placeholder.text')}</p>
     </section>
