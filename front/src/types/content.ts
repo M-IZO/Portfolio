@@ -64,6 +64,11 @@ export interface About {
   education: TimelineItem[]
   certifications: Certification[]
   hobbies: Localized[]
+  availability: {
+    position: Localized
+    duration: Localized
+    from: string // YYYY-MM
+  }
   socials: {
     github: string
     linkedin: string
