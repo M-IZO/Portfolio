@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DownloadIcon, ExternalLinkIcon, GitHubIcon, LinkedInIcon } from '../components/icons'
+import Reveal from '../components/Reveal'
 import RichText from '../components/RichText'
 import { about } from '../data/about'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
@@ -14,12 +15,14 @@ const roundLink = `flex size-11 items-center justify-center rounded-full border-
 
 function Section({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
-    <section aria-labelledby={id}>
-      <h2 id={id} className="text-2xl font-bold">
-        {title}
-      </h2>
-      <div className="mt-4">{children}</div>
-    </section>
+    <Reveal>
+      <section aria-labelledby={id}>
+        <h2 id={id} className="text-2xl font-bold">
+          {title}
+        </h2>
+        <div className="mt-4">{children}</div>
+      </section>
+    </Reveal>
   )
 }
 
