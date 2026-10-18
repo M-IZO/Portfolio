@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router'
 import Lightbox from '../components/Lightbox'
+import Reveal from '../components/Reveal'
 import RichText from '../components/RichText'
 import { getProject } from '../data/projects'
 import { getTag } from '../data/tags'
@@ -57,52 +58,58 @@ function ProjectDetail({ project }: { project: ProjectData }) {
       </header>
 
       <div className="space-y-10 px-6 md:px-8">
-        <section aria-labelledby="stack-title">
-          <h2 id="stack-title" className="text-2xl font-bold">
-            {t('project.stack')}
-          </h2>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {project.stack.map((item) => (
-              <li key={item} className="rounded-full bg-elevated px-4 py-1.5 text-sm font-bold shadow-card">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section aria-labelledby="description-title" className="max-w-3xl">
-          <h2 id="description-title" className="text-2xl font-bold">
-            {t('project.description')}
-          </h2>
-          <RichText text={localize(project.description, lang)} className="mt-4 leading-relaxed text-muted" />
-        </section>
-
-        {gallery.length > 0 && (
-          <section aria-labelledby="gallery-title">
-            <h2 id="gallery-title" className="text-2xl font-bold">
-              {t('project.gallery')}
+        <Reveal>
+          <section aria-labelledby="stack-title">
+            <h2 id="stack-title" className="text-2xl font-bold">
+              {t('project.stack')}
             </h2>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {gallery.map((image, index) => (
-                <li key={image.src}>
-                  <button
-                    type="button"
-                    onClick={() => setImageIndex(index)}
-                    aria-label={t('project.openImage', { number: index + 1 })}
-                    className={`group block w-full overflow-hidden rounded-md shadow-card ${focusRing}`}
-                  >
-                    <img
-                      src={asset(image.src)}
-                      alt={localize(image.alt, lang)}
-                      loading="lazy"
-                      className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100"
-                    />
-                  </button>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {project.stack.map((item) => (
+                <li key={item} className="rounded-full bg-elevated px-4 py-1.5 text-sm font-bold shadow-card">
+                  {item}
                 </li>
               ))}
             </ul>
-            <Lightbox images={gallery} index={imageIndex} onChange={setImageIndex} />
           </section>
+        </Reveal>
+
+        <Reveal>
+          <section aria-labelledby="description-title" className="max-w-3xl">
+            <h2 id="description-title" className="text-2xl font-bold">
+              {t('project.description')}
+            </h2>
+            <RichText text={localize(project.description, lang)} className="mt-4 leading-relaxed text-muted" />
+          </section>
+        </Reveal>
+
+        {gallery.length > 0 && (
+          <Reveal>
+            <section aria-labelledby="gallery-title">
+              <h2 id="gallery-title" className="text-2xl font-bold">
+                {t('project.gallery')}
+              </h2>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {gallery.map((image, index) => (
+                  <li key={image.src}>
+                    <button
+                      type="button"
+                      onClick={() => setImageIndex(index)}
+                      aria-label={t('project.openImage', { number: index + 1 })}
+                      className={`group block w-full overflow-hidden rounded-md shadow-card ${focusRing}`}
+                    >
+                      <img
+                        src={asset(image.src)}
+                        alt={localize(image.alt, lang)}
+                        loading="lazy"
+                        className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100"
+                      />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <Lightbox images={gallery} index={imageIndex} onChange={setImageIndex} />
+            </section>
+          </Reveal>
         )}
 
       </div>
