@@ -45,5 +45,33 @@
     "title": "Bio",
     "subtitle": "Experience, skills and CV",
     "downloadCv": "Download CV"
+  },
+  "home": {
+    "projects": "Projects",
+    "filterLabel": "Filter by tag",
+    "all": "All",
+    "sortLabel": "Sort by",
+    "sort": {
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "az": "A → Z",
+      "za": "Z → A"
+    },
+    "results_one": "{{count}} project",
+    "results_other": "{{count}} projects",
+    "resultsFor": "for “{{query}}”",
+    "emptyTitle": "No project matches",
+    "emptyText": "Try another search or remove some filters.",
+    "reset": "Reset filters",
+    "status": "Currently looking",
+    "aboutMe": "About me",
+    "columns": {
+      "title": "Title",
+      "tags": "Tags",
+      "year": "Year"
+    },
+    "position": "Looking for",
+    "duration": "Duration",
+    "availableFrom": "Available from"
   }
 }
