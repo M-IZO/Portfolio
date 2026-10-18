@@ -9,7 +9,7 @@ import { tags } from '../data/tags'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useLang } from '../hooks/useLang'
 import { SORTS, useProjectFilters, type Sort } from '../hooks/useProjectFilters'
-import { localize } from '../lib/content'
+import { formatMonth, localize } from '../lib/content'
 
 // Only offer tags that at least one project uses.
 const usedTags = tags.filter((tag) => projects.some((project) => project.tags.includes(tag.id)))
@@ -21,8 +21,7 @@ function Home() {
   const lang = useLang()
   useDocumentTitle(t('nav.home'))
 
-  const [year, month] = about.availability.from.split('-').map(Number)
-  const availableFrom = new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric' }).format(new Date(year, month - 1))
+  const availableFrom = formatMonth(about.availability.from, lang)
   const details = [
     { label: t('home.position'), value: localize(about.availability.position, lang), Icon: BriefcaseIcon },
     { label: t('home.duration'), value: localize(about.availability.duration, lang), Icon: ClockIcon },
