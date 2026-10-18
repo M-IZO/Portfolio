@@ -11,7 +11,7 @@ function NotFound() {
   useDocumentTitle(t('notFound.title'))
 
   return (
-    <section className="grid flex-1 content-center items-center gap-8 md:grid-cols-3">
+    <section className="grid flex-1 content-center items-center gap-8 p-6 md:grid-cols-3">
       <div className="flex flex-col items-center gap-6 text-center md:col-span-2">
         <LostCards className="w-full max-w-md" />
         <h1 className="text-3xl font-bold">{t('notFound.title')}</h1>
@@ -33,7 +33,7 @@ export function StandaloneNotFound() {
   useSyncLang(useLang())
 
   return (
-    <div className="flex min-h-screen flex-col p-6">
+    <div className="flex min-h-screen flex-col">
       <NotFound />
     </div>
   )
