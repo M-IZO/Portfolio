@@ -73,5 +73,18 @@
     "position": "Looking for",
     "duration": "Duration",
     "availableFrom": "Available from"
+  },
+  "project": {
+    "description": "About this project",
+    "stack": "Tech stack",
+    "gallery": "Gallery",
+    "openImage": "Open image {{number}}"
+  },
+  "lightbox": {
+    "label": "Image viewer",
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image",
+    "counter": "{{current}} / {{total}}"
   }
 }
