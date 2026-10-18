@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router'
-import { about } from '../data/about'
 import { projects } from '../data/projects'
 import { getTag, tags } from '../data/tags'
 import { useLang } from '../hooks/useLang'
-import { asset, localize } from '../lib/content'
+import { asset, cvDownload, localize } from '../lib/content'
 import type { TagId } from '../types/content'
 import ChipScroller from './ChipScroller'
 import { DownloadIcon, IdCardIcon, StackIcon, UserIcon } from './icons'
@@ -29,7 +28,6 @@ function Library({ collapsed = false, onToggle }: LibraryProps) {
   const [activeTag, setActiveTag] = useState<TagId | null>(null)
 
   const visible = activeTag ? projects.filter((project) => project.tags.includes(activeTag)) : projects
-  const cvName = `CV-${about.name.replace(/\s+/g, '-')}-${lang.toUpperCase()}.pdf`
 
   const rowClass = (isActive: boolean) =>
     `flex items-center gap-3 rounded-md transition-colors ${focusRing} ${collapsed ? 'justify-center p-1' : 'p-2'} ${
@@ -41,7 +39,7 @@ function Library({ collapsed = false, onToggle }: LibraryProps) {
       selected ? 'bg-text text-bg' : 'bg-elevated text-text hover:bg-hover'
     }`
 
-  const cvHref = asset(localize(about.cv, lang))
+  const cv = cvDownload(lang)
 
   return (
     <div className="flex h-full flex-col gap-2">
@@ -74,8 +72,8 @@ function Library({ collapsed = false, onToggle }: LibraryProps) {
             )}
           </NavLink>
           <a
-            href={cvHref}
-            download={cvName}
+            href={cv.href}
+            download={cv.fileName}
             aria-label={t('aboutLink.downloadCv')}
             title={t('aboutLink.downloadCv')}
             className={
