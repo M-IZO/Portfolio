@@ -1,10 +1,10 @@
-import { createBrowserRouter, Navigate } from 'react-router'
-import { detectLang } from '../lib/lang'
+import { createBrowserRouter } from 'react-router'
 import About from '../pages/About'
 import Home from '../pages/Home'
 import NotFound, { StandaloneNotFound } from '../pages/NotFound'
 import Project from '../pages/Project'
 import LangLayout from './LangLayout'
+import LangRedirect from './LangRedirect'
 
 // The router expects no trailing slash, except for the root.
 const basename = import.meta.env.BASE_URL.replace(/(.)\/$/, '$1')
@@ -13,7 +13,7 @@ export const router = createBrowserRouter(
   [
     {
       path: '/',
-      element: <Navigate to={`/${detectLang()}`} replace />,
+      element: <LangRedirect />,
     },
     {
       path: '/:lang',

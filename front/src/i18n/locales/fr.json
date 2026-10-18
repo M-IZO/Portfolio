@@ -1,0 +1,25 @@
+{
+  "site": {
+    "name": "Portfolio"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos"
+  },
+  "theme": {
+    "toLight": "Passer au thème clair",
+    "toDark": "Passer au thème sombre"
+  },
+  "language": {
+    "label": "Langue",
+    "switchTo": "Passer en français"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "back": "Retour à l'accueil"
+  },
+  "placeholder": {
+    "text": "Lorem ipsum dolor sit amet."
+  }
+}

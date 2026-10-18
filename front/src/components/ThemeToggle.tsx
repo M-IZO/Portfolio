@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useTheme } from '../hooks/useTheme'
 
 function SunIcon() {
@@ -18,15 +19,17 @@ function MoonIcon() {
 }
 
 function ThemeToggle() {
+  const { t } = useTranslation()
   const { theme, toggleTheme } = useTheme()
   const isDark = theme === 'dark'
+  const label = isDark ? t('theme.toLight') : t('theme.toDark')
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
+      aria-label={label}
+      title={label}
       className="inline-flex size-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-hover hover:text-text focus-visible:outline-2 focus-visible:outline-accent"
     >
       {isDark ? <SunIcon /> : <MoonIcon />}

@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router/dom'
 import '@fontsource-variable/roboto'
 import { router } from './app/router'
+import './i18n'
 import './styles/index.css'
 
 createRoot(document.getElementById('root')!).render(

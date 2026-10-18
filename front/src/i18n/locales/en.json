@@ -1,0 +1,25 @@
+{
+  "site": {
+    "name": "Portfolio"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About"
+  },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  },
+  "language": {
+    "label": "Language",
+    "switchTo": "Switch to English"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "back": "Back to home"
+  },
+  "placeholder": {
+    "text": "Lorem ipsum dolor sit amet."
+  }
+}
