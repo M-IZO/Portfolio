@@ -70,6 +70,11 @@ export const about: About = {
     { en: 'Dolor sit amet', fr: 'Dolor sit amet' },
     { en: 'Consectetur', fr: 'Consectetur' },
   ],
+  availability: {
+    position: { en: 'Internship', fr: 'Stage' },
+    duration: { en: '3 months minimum', fr: '3 mois minimum' },
+    from: '2027-02',
+  },
   socials: {
     github: 'https://github.com/',
     linkedin: 'https://www.linkedin.com/',
