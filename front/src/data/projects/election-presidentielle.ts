@@ -44,6 +44,8 @@ La page d'accueil donne une vue d'ensemble, avec le nombre de voix exprimées, u
 
 Le nuancier politique montre la part de chaque nuance à chaque élection dans un graphique en aires empilées. Un tableau hiérarchique détaille les voix par nuance, et on peut le déplier pour voir chaque candidat.
 
+![Page Nuancier politique du rapport](${dir}/gallery/2-nuancier.webp)
+
 ![Évolution des voix par nuance politique](${dir}/illustrations/nuancier-evolution.webp)
 ![Tableau des voix par nuance et par candidat](${dir}/illustrations/nuancier-tableau.webp)
 
@@ -56,6 +58,8 @@ Les votes blancs et nuls ont leur propre analyse. En 2022, les départements où
 ### Angle sociologique
 
 La page Sociologie croise le vote avec la population de chaque département. Un paramètre de champ permet de choisir la catégorie socioprofessionnelle étudiée (ouvriers, employés, cadres ou autres), et un segment choisit la tranche d'âge (18 à 24 ans, 25 à 29 ans ou 30 ans et plus). On peut aussi changer l'année et le tour.
+
+![Page Sociologie du rapport](${dir}/gallery/3-sociologie.webp)
 
 ![Facteurs modifiables de la page Sociologie](${dir}/illustrations/sociologie-filtres.webp)
 
@@ -71,6 +75,8 @@ Un nuage de points place chaque département selon la part de la catégorie choi
 
 La page Niveau de vie ajoute deux curseurs qui filtrent les départements selon la part des prestations sociales dans les revenus et la médiane du niveau de vie. On choisit aussi l'année, le tour et les nuances à afficher, et un graphique en anneau montre les résultats des candidats pour la sélection.
 
+![Page Niveau de vie du rapport](${dir}/gallery/4-niveau-de-vie.webp)
+
 ![Facteurs modifiables de la page Niveau de vie](${dir}/illustrations/niveau-de-vie-filtres.webp)
 
 La part des prestations sociales montre une forte corrélation positive avec l'extrême droite, constatée sur toutes les années. Pour la gauche, la corrélation est positive mais varie selon l'année. Elle est négative pour le centre et la droite, et plus légère pour les autres nuances. L'exemple ci-dessous porte sur le premier tour de 2012.
@@ -81,6 +87,8 @@ La part des prestations sociales montre une forte corrélation positive avec l'e
 ### Logement
 
 La page Logement reprend les segments d'année, de tour et de nuance, avec une carte qui affiche la part des ménages vivant dans une maison pour la sélection.
+
+![Page Logement du rapport](${dir}/gallery/5-logement.webp)
 
 ![Facteurs modifiables de la page Logement](${dir}/illustrations/logement-filtres.webp)
 
@@ -115,6 +123,8 @@ The home page gives an overview, with the number of votes cast, a map by departm
 
 The political spectrum page shows the share of each leaning at each election in a stacked area chart. A matrix details the votes by leaning, and can be expanded to show each candidate.
 
+![Political spectrum page of the report](${dir}/gallery/2-nuancier.webp)
+
 ![Votes by political leaning over time](${dir}/illustrations/nuancier-evolution.webp)
 ![Votes by leaning and by candidate](${dir}/illustrations/nuancier-tableau.webp)
 
@@ -127,6 +137,8 @@ Blank and spoiled ballots have their own analysis. In 2022, the departments wher
 ### Sociological angle
 
 The Sociology page crosses the vote with the population of each department. A field parameter picks the occupational group studied (manual workers, employees, managers or others), and a slicer picks the age group (18 to 24, 25 to 29 or 30 and over). The year and the round can also be changed.
+
+![Sociology page of the report](${dir}/gallery/3-sociologie.webp)
 
 ![Adjustable factors of the Sociology page](${dir}/illustrations/sociologie-filtres.webp)
 
@@ -142,6 +154,8 @@ A scatter plot places each department by the share of the chosen group and the s
 
 The Standard of living page adds two sliders that filter departments by the share of social benefits in income and by median standard of living. You also choose the year, the round and the leanings to show, and a donut chart shows the candidates' results for the selection.
 
+![Standard of living page of the report](${dir}/gallery/4-niveau-de-vie.webp)
+
 ![Adjustable factors of the Standard of living page](${dir}/illustrations/niveau-de-vie-filtres.webp)
 
 The share of social benefits shows a strong positive correlation with the far right, seen in every year. For the left, the correlation is positive but varies by year. It is negative for the centre and the right, and weaker for the other leanings. The example below is the first round of 2012.
@@ -152,6 +166,8 @@ The share of social benefits shows a strong positive correlation with the far ri
 ### Housing
 
 The Housing page keeps the year, round and leaning slicers, with a card that shows the share of households living in a house for the selection.
+
+![Housing page of the report](${dir}/gallery/5-logement.webp)
 
 ![Adjustable factors of the Housing page](${dir}/illustrations/logement-filtres.webp)
 
@@ -167,10 +183,4 @@ The percentage of houses, shown in a ribbon chart, shows fewer correlations. The
 
 Anonymous voting prevents crossing the data, for example to compare how women and men vote, and the Power Query M language takes real time to learn. On the other hand, the filters make the analysis flexible and the correlations found are easy to see. A next step would be to add an angle on the population with a degree.`,
   },
-  gallery: [
-    { src: `${dir}/gallery/2-nuancier.webp`, alt: { fr: 'Nuancier politique', en: 'Political spectrum' } },
-    { src: `${dir}/gallery/3-sociologie.webp`, alt: { fr: 'Sociologie', en: 'Sociology' } },
-    { src: `${dir}/gallery/4-niveau-de-vie.webp`, alt: { fr: 'Niveau de vie', en: 'Standard of living' } },
-    { src: `${dir}/gallery/5-logement.webp`, alt: { fr: 'Logement', en: 'Housing' } },
-  ],
 }
