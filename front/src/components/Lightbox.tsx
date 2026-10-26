@@ -2,13 +2,13 @@ import { AnimatePresence } from 'motion/react'
 import * as m from 'motion/react-m'
 import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useLang } from '../hooks/useLang'
-import { asset, localize } from '../lib/content'
-import type { GalleryImage } from '../types/content'
+import { asset } from '../lib/content'
 import { ChevronIcon, CloseIcon } from './icons'
 
+export type LightboxImage = { src: string; alt: string }
+
 type LightboxProps = {
-  images: GalleryImage[]
+  images: LightboxImage[]
   index: number | null
   onChange: (index: number | null) => void
 }
@@ -16,7 +16,6 @@ type LightboxProps = {
 // Full-screen image viewer: arrows, Escape, swipe, and a counter.
 function Lightbox({ images, index, onChange }: LightboxProps) {
   const { t } = useTranslation()
-  const lang = useLang()
   const dialogRef = useRef<HTMLDialogElement>(null)
   const swipeStart = useRef<number | null>(null)
   // Direction of the last change, so the new image slides in from the right side.
@@ -96,7 +95,7 @@ function Lightbox({ images, index, onChange }: LightboxProps) {
               exit="exit"
               transition={{ duration: 0.2, ease: 'easeOut' }}
               src={asset(image.src)}
-              alt={localize(image.alt, lang)}
+              alt={image.alt}
               onPointerDown={onPointerDown}
               onPointerUp={onPointerUp}
               draggable={false}
