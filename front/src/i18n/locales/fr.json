@@ -48,6 +48,7 @@
   },
   "home": {
     "projects": "Projets",
+    "featured": "À la une",
     "filterLabel": "Filtrer par tag",
     "all": "Tous",
     "sortLabel": "Trier par",

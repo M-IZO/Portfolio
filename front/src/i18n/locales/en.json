@@ -48,6 +48,7 @@
   },
   "home": {
     "projects": "Projects",
+    "featured": "Featured",
     "filterLabel": "Filter by tag",
     "all": "All",
     "sortLabel": "Sort by",

@@ -22,3 +22,7 @@ export const projects = all.filter((project) => !project.hidden).sort((a, b) => 
 export function getProject(slug: string | undefined) {
   return projects.find((project) => project.slug === slug)
 }
+
+// Projects pinned at the top of the home page, in this order.
+const featuredSlugs = ['aixpert', 'voyageur-de-commerce', 'completion-musicale', 'election-presidentielle', 'visualiseur-cgshop', 'jyotih']
+export const featured = featuredSlugs.map(getProject).filter((project) => project !== undefined)

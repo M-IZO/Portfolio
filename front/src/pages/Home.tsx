@@ -4,12 +4,12 @@ import ChipScroller from '../components/ChipScroller'
 import { BriefcaseIcon, CalendarIcon, ClockIcon } from '../components/icons'
 import ProjectCard, { projectRowColumns } from '../components/ProjectCard'
 import { about } from '../data/about'
-import { projects } from '../data/projects'
+import { featured, projects } from '../data/projects'
 import { tags } from '../data/tags'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useLang } from '../hooks/useLang'
 import { SORTS, useProjectFilters, type Sort } from '../hooks/useProjectFilters'
-import { formatMonth, localize } from '../lib/content'
+import { asset, formatMonth, localize } from '../lib/content'
 
 // Only offer tags that at least one project uses.
 const usedTags = tags.filter((tag) => projects.some((project) => project.tags.includes(tag.id)))
@@ -63,6 +63,26 @@ function Home() {
         </div>
       </header>
 
+
+      <section aria-labelledby="featured-title" className="px-6 pb-10 md:px-8">
+        <h2 id="featured-title" className="text-2xl font-bold">
+          {t('home.featured')}
+        </h2>
+        <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-6">
+          {featured.map((project) => (
+            <li key={project.slug}>
+              <Link
+                to={`/${lang}/projects/${project.slug}`}
+                className={`group block rounded-lg p-3 transition-colors hover:bg-elevated ${focusRing}`}
+              >
+                <img src={asset(project.cover)} alt="" className="aspect-square w-full rounded-md object-cover shadow-card" />
+                <p className="mt-3 truncate font-bold">{localize(project.title, lang)}</p>
+                <p className="line-clamp-2 text-sm text-muted">{localize(project.tagline, lang)}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section aria-labelledby="projects-title" className="px-6 pb-10 md:px-8">
         <div className="flex flex-wrap items-end justify-between gap-3">
