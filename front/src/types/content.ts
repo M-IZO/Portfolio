@@ -14,20 +14,31 @@ export interface GalleryImage {
   alt: Localized
 }
 
+export interface ProjectVideo {
+  src: string // relative to `public/`
+  title: Localized
+  poster?: string // image shown before playing, relative to `public/`
+}
+
 export interface Project {
   slug: string
   title: Localized
   tagline: Localized
-  // Paragraphs are separated by a blank line; lines starting with "- " form a list.
-  description: Localized
-  year: number
-  role: Localized
+  course: string // UE code, e.g. "BD70"
+  date: {
+    start: string // YYYY-MM
+    end?: string // YYYY-MM, only for projects spread over several months
+  }
+  teamSize: number
   tags: TagId[]
   stack: string[]
   // Paths relative to `public/`, resolved with `asset()`.
   cover: string
-  accentColor: string
-  // Optional: the gallery section is hidden when absent or empty.
+  // Rich text: blank line between blocks, "- " for list items, "### " for a subheading.
+  brief: Localized
+  description: Localized
+  // Optional sections, hidden when absent or empty.
+  videos?: ProjectVideo[]
   gallery?: GalleryImage[]
 }
 
