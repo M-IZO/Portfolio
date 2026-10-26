@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <!-- music icon from Tabler Icons (https://tabler.io/icons), MIT License, Copyright (c) 2020-2024 Paweł Kuna -->
+  <rect width="600" height="600" fill="#5B4BD6"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(84 84) scale(18)">
+    <path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/>
+    <path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/>
+    <path d="M9 17v-13h10v13"/>
+    <path d="M9 8h10"/>
+  </g>
+</svg>
