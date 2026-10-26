@@ -170,3 +170,26 @@ export function VideoIcon({ className = 'size-5' }: IconProps) {
     </svg>
   )
 }
+
+// Hobby category icons from Tabler Icons (https://tabler.io/icons), MIT License.
+const hobbyPaths = {
+  sport: ['M3 20h18l-6.921 -14.612a2.3 2.3 0 0 0 -4.158 0l-6.921 14.612z', 'M7.5 11l2 2.5l2.5 -2.5l2 3l2.5 -2'],
+  art: [
+    'M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25',
+    'M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0',
+    'M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0',
+    'M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0',
+  ],
+}
+
+export type HobbyIconName = keyof typeof hobbyPaths
+
+export function HobbyIcon({ name, className = 'size-5' }: IconProps & { name: HobbyIconName }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
+      {hobbyPaths[name].map((d) => (
+        <path key={d} d={d} />
+      ))}
+    </svg>
+  )
+}
