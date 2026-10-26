@@ -168,7 +168,6 @@ The percentage of houses, shown in a ribbon chart, shows fewer correlations. The
 Anonymous voting prevents crossing the data, for example to compare how women and men vote, and the Power Query M language takes real time to learn. On the other hand, the filters make the analysis flexible and the correlations found are easy to see. A next step would be to add an angle on the population with a degree.`,
   },
   gallery: [
-    { src: `${dir}/gallery/1-accueil.webp`, alt: { fr: 'Accueil', en: 'Home' } },
     { src: `${dir}/gallery/2-nuancier.webp`, alt: { fr: 'Nuancier politique', en: 'Political spectrum' } },
     { src: `${dir}/gallery/3-sociologie.webp`, alt: { fr: 'Sociologie', en: 'Sociology' } },
     { src: `${dir}/gallery/4-niveau-de-vie.webp`, alt: { fr: 'Niveau de vie', en: 'Standard of living' } },

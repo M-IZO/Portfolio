@@ -79,11 +79,4 @@ The website is built in PHP with the Symfony framework and follows these pages w
 ![My account page](${dir}/gallery/4-compte.webp)
 ![Tournament history](${dir}/gallery/5-historique.webp)`,
   },
-  gallery: [
-    { src: `${dir}/gallery/1-tournois.webp`, alt: { fr: 'Liste des tournois', en: 'Tournament list' } },
-    { src: `${dir}/gallery/2-tournoi.webp`, alt: { fr: "Page d'un tournoi et déroulement des matchs", en: 'Tournament page and match schedule' } },
-    { src: `${dir}/gallery/3-classement.webp`, alt: { fr: 'Classement des participants', en: 'Participant rankings' } },
-    { src: `${dir}/gallery/4-compte.webp`, alt: { fr: 'Page Mon compte', en: 'My account page' } },
-    { src: `${dir}/gallery/5-historique.webp`, alt: { fr: 'Historique des tournois', en: 'Tournament history' } },
-  ],
 }

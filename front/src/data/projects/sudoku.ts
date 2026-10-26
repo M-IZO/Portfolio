@@ -107,15 +107,4 @@ The administrator opens their panel with a password. They choose the difficultie
 
 We made sure the interfaces were user friendly and that the code followed object oriented principles in Java. Games are stored in files, and the code is commented to make it easier to understand and maintain.`,
   },
-  gallery: [
-    { src: `${dir}/gallery/1-accueil.webp`, alt: { fr: 'Accueil', en: 'Home screen' } },
-    { src: `${dir}/gallery/2-difficulte.webp`, alt: { fr: 'Choix de la difficulté', en: 'Choosing the difficulty' } },
-    { src: `${dir}/gallery/3-grille.webp`, alt: { fr: 'Grille', en: 'Grid' } },
-    { src: `${dir}/gallery/4-mise-en-evidence.webp`, alt: { fr: "Mise en évidence d'un chiffre", en: 'Highlighting a digit' } },
-    { src: `${dir}/gallery/5-verification.webp`, alt: { fr: 'Vérification automatique', en: 'Automatic check' } },
-    { src: `${dir}/gallery/6-victoire.webp`, alt: { fr: 'Grille terminée', en: 'Completed grid' } },
-    { src: `${dir}/gallery/7-chargement.webp`, alt: { fr: 'Chargement', en: 'Loading' } },
-    { src: `${dir}/gallery/8-administration.webp`, alt: { fr: 'Panneau administrateur', en: 'Administrator panel' } },
-    { src: `${dir}/gallery/9-regles.webp`, alt: { fr: 'Règles', en: 'Rules' } },
-  ],
 }
