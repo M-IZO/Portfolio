@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <!-- Digits from Tabler Icons (https://tabler.io/icons), MIT License, Copyright (c) 2020-2024 Paweł Kuna -->
+  <rect width="600" height="600" fill="#12A37F"/>
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="120" y="120" width="360" height="360" rx="36" stroke-width="24"/>
+    <path d="M240 120v360M360 120v360M120 240h360M120 360h360" stroke-width="16"/>
+  </g>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(249.6 129.6) scale(4.2)"><path d="M8 16a4 4 0 1 0 8 0v-1a4 4 0 1 0 -8 0"/><path d="M16 8a4 4 0 1 0 -8 0v8"/></g>
+    <g transform="translate(129.6 249.6) scale(4.2)"><path d="M13 20v-16l-5 5"/></g>
+    <g transform="translate(249.6 249.6) scale(4.2)"><path d="M12 8m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M12 16m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/></g>
+    <g transform="translate(369.6 249.6) scale(4.2)"><path d="M8 20h4a4 4 0 1 0 0 -8h-4v-8h8"/></g>
+    <g transform="translate(129.6 369.6) scale(4.2)"><path d="M8 4h8l-4 16"/></g>
+  </g>
+</svg>
