@@ -30,7 +30,7 @@ The client expects a program that reads the JSON files of the instances and solu
   description: {
     fr: `### Organisation
 
-Nous étions quatre, avec un product owner, une scrum master et deux développeurs. J'avais le rôle de scrum master. Les user stories sont suivies dans Jira et triées par importance dans le backlog, et chaque membre tient une feuille de temps qui sépare le code, la recherche et l'organisation. Les personas du développeur et de l'utilisateur nous ont aidés à garder en tête les besoins de chacun, et les roadmaps fixent les objectifs de chaque période.
+Nous étions quatre, répartis entre les rôles de product owner, de scrum master et de développeur. J'avais le rôle de scrum master. Les user stories sont suivies dans Jira et triées par importance dans le backlog, et chaque membre tient une feuille de temps qui sépare le code, la recherche et l'organisation. Les personas du développeur et de l'utilisateur nous ont aidés à garder en tête les besoins de chacun, et les roadmaps fixent les objectifs de chaque période.
 
 ![Persona du développeur](${dir}/illustrations/persona-dev.webp)
 ![Persona de l'utilisateur](${dir}/illustrations/persona-utilisateur.webp)
@@ -147,14 +147,4 @@ JSON files are checked with the Python library provided by the competition, and 
 
 The main challenges were the client's changing requests and the scale of the project, which made us rework our data structures. We are proud of the final result and of the client's satisfaction, and communication remains our main area for improvement.`,
   },
-  gallery: [
-    { src: `${dir}/gallery/1-s3-instances.webp`, alt: { fr: 'Liste des instances, premier semestre', en: 'List of instances, first semester' } },
-    { src: `${dir}/gallery/2-s3-instance.webp`, alt: { fr: "Page d'une instance, premier semestre", en: 'Instance page, first semester' } },
-    { src: `${dir}/gallery/3-s3-solutions.webp`, alt: { fr: 'Page des solutions, premier semestre', en: 'Solutions page, first semester' } },
-    { src: `${dir}/gallery/4-s4-accueil.webp`, alt: { fr: 'Accueil, second semestre', en: 'Home page, second semester' } },
-    { src: `${dir}/gallery/5-s4-instance.webp`, alt: { fr: "Page d'une instance, second semestre", en: 'Instance page, second semester' } },
-    { src: `${dir}/gallery/6-s4-details-item.webp`, alt: { fr: "Détails d'un item au survol", en: 'Item details on hover' } },
-    { src: `${dir}/gallery/7-s4-grande-solution.webp`, alt: { fr: "Solution de l'instance atris49462", en: 'Solution of the atris49462 instance' } },
-    { src: `${dir}/gallery/8-s4-classement.webp`, alt: { fr: 'Classement des équipes', en: 'Team leaderboard' } },
-  ],
 }
