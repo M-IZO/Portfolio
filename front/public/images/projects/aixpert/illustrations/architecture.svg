@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="Roboto, Arial, sans-serif">
+  <rect width="1200" height="560" rx="16" fill="#16121F"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#8B7FA8"/>
+    </marker>
+  </defs>
+  <g fill="#B9AFD0" font-size="15" font-weight="700" letter-spacing="2">
+    <text x="110" y="52" text-anchor="middle">SOURCES</text>
+    <text x="345" y="52" text-anchor="middle">COLLECTE</text>
+    <text x="580" y="52" text-anchor="middle">STOCKAGE</text>
+    <text x="815" y="52" text-anchor="middle">API</text>
+    <text x="1060" y="52" text-anchor="middle">OUTILS WEB</text>
+  </g>
+  <g fill="#2A2238" stroke="#4A3F63" stroke-width="2">
+    <rect x="30" y="90" width="160" height="70" rx="10"/>
+    <rect x="30" y="190" width="160" height="70" rx="10"/>
+    <rect x="30" y="290" width="160" height="70" rx="10"/>
+    <rect x="30" y="390" width="160" height="70" rx="10"/>
+  </g>
+  <g fill="#E8E2F5" font-size="16" text-anchor="middle">
+    <text x="110" y="132">Source 1 · JSON</text>
+    <text x="110" y="232">Source 2 · XML</text>
+    <text x="110" y="332">Source 3 · texte</text>
+    <text x="110" y="432">Source 4 · API</text>
+  </g>
+  <rect x="255" y="165" width="180" height="220" rx="12" fill="#2A2238" stroke="#9147FF" stroke-width="2"/>
+  <g fill="#E8E2F5" text-anchor="middle">
+    <text x="345" y="235" font-size="18" font-weight="700">Scripts</text>
+    <text x="345" y="258" font-size="18" font-weight="700">d'insertion</text>
+    <text x="345" y="295" font-size="14" fill="#B9AFD0">tâches planifiées</text>
+    <text x="345" y="317" font-size="14" fill="#B9AFD0">vérification</text>
+    <text x="345" y="339" font-size="14" fill="#B9AFD0">nettoyage</text>
+  </g>
+  <g fill="#2A2238" stroke="#9147FF" stroke-width="2">
+    <path d="M500 120a80 18 0 0 1 160 0v90a80 18 0 0 1 -160 0z"/>
+    <path d="M500 330a80 18 0 0 1 160 0v90a80 18 0 0 1 -160 0z"/>
+  </g>
+  <g fill="none" stroke="#9147FF" stroke-width="2">
+    <path d="M500 120a80 18 0 0 0 160 0"/>
+    <path d="M500 330a80 18 0 0 0 160 0"/>
+  </g>
+  <g fill="#E8E2F5" text-anchor="middle">
+    <text x="580" y="172" font-size="17" font-weight="700">Temps réel</text>
+    <text x="580" y="195" font-size="13" fill="#B9AFD0">données du jour</text>
+    <text x="580" y="382" font-size="17" font-weight="700">Historique</text>
+    <text x="580" y="405" font-size="13" fill="#B9AFD0">100 M de lignes, 2 ans</text>
+  </g>
+  <rect x="725" y="165" width="180" height="220" rx="12" fill="#2A2238" stroke="#9147FF" stroke-width="2"/>
+  <g fill="#E8E2F5" text-anchor="middle">
+    <text x="815" y="235" font-size="18" font-weight="700">API REST</text>
+    <text x="815" y="272" font-size="14" fill="#B9AFD0">clés et permissions</text>
+    <text x="815" y="294" font-size="14" fill="#B9AFD0">limite de requêtes</text>
+    <text x="815" y="316" font-size="14" fill="#B9AFD0">versions</text>
+    <text x="815" y="338" font-size="14" fill="#B9AFD0">config par centre</text>
+  </g>
+  <g fill="#2A2238" stroke="#4A3F63" stroke-width="2">
+    <rect x="970" y="140" width="180" height="90" rx="10" stroke="#9147FF"/>
+    <rect x="970" y="250" width="180" height="70" rx="10"/>
+    <rect x="970" y="340" width="180" height="70" rx="10"/>
+  </g>
+  <g fill="#E8E2F5" text-anchor="middle">
+    <text x="1060" y="180" font-size="18" font-weight="700">Aixpert</text>
+    <text x="1060" y="204" font-size="13" fill="#B9AFD0">trafic et effectifs</text>
+    <text x="1060" y="291" font-size="16">Autres outils</text>
+    <text x="1060" y="381" font-size="16">Statistiques</text>
+  </g>
+  <rect x="955" y="440" width="210" height="50" rx="10" fill="none" stroke="#4A3F63" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="1060" y="471" font-size="14" fill="#B9AFD0" text-anchor="middle">Charte graphique commune</text>
+  <g stroke="#8B7FA8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M190 125C225 125 225 220 253 220"/>
+    <path d="M190 225C225 225 225 250 253 250"/>
+    <path d="M190 325C225 325 225 300 253 300"/>
+    <path d="M190 425C225 425 225 330 253 330"/>
+    <path d="M435 240C470 240 470 165 498 165"/>
+    <path d="M435 310C470 310 470 375 498 375"/>
+    <path d="M660 165C695 165 695 240 723 240"/>
+    <path d="M660 375C695 375 695 310 723 310"/>
+    <path d="M905 240C935 240 935 185 968 185"/>
+    <path d="M905 275C935 275 935 285 968 285"/>
+    <path d="M905 310C935 310 935 375 968 375"/>
+  </g>
+</svg>
