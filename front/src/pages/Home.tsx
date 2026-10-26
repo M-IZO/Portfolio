@@ -41,14 +41,12 @@ function Home() {
         <section aria-label={t('home.status')} className="w-full max-w-[22rem] shrink-0 rounded-lg border-2 border-text/15 p-6 text-left">
           <dl className="space-y-5">
             {details.map(({ label, value, Icon }) => (
-              <div key={label} className="flex items-center gap-4">
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-md bg-elevated text-accent-hover">
-                  <Icon className="size-5" />
-                </span>
-                <div className="min-w-0">
-                  <dt className="text-xs tracking-wider text-muted uppercase">{label}</dt>
-                  <dd className="text-2xl font-black tracking-tight first-letter:uppercase">{value}</dd>
-                </div>
+              <div key={label}>
+                <dt className="flex items-center gap-2 text-xs tracking-wider text-muted uppercase">
+                  <Icon className="size-4" />
+                  {label}
+                </dt>
+                <dd className="text-2xl font-black tracking-tight first-letter:uppercase">{value}</dd>
               </div>
             ))}
           </dl>
