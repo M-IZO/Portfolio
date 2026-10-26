@@ -1,9 +1,36 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { asset } from '../lib/content'
 import Carousel from './Carousel'
 import Lightbox, { type LightboxImage } from './Lightbox'
+import Screens from './Screens'
 
 const IMAGE = /^!\[(.*)\]\((.+)\)$/
+const SCREEN = /^@\[(.*)\]\((.+)\)$/
+const LINK = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g
+
+// Turns "[text](https://…)" inside a paragraph into external links.
+function inline(text: string) {
+  const parts: ReactNode[] = []
+  let last = 0
+  for (const match of text.matchAll(LINK)) {
+    parts.push(text.slice(last, match.index))
+    parts.push(
+      <a
+        key={match.index}
+        href={match[2]}
+        target="_blank"
+        rel="noreferrer"
+        title={match[2]}
+        className="underline underline-offset-2"
+      >
+        {match[1]}
+      </a>,
+    )
+    last = match.index + match[0].length
+  }
+  parts.push(text.slice(last))
+  return parts
+}
 
 // A single illustration that opens full screen on click.
 function Figure({ image }: { image: LightboxImage }) {
@@ -23,6 +50,7 @@ function Figure({ image }: { image: LightboxImage }) {
 // Renders plain text: blank lines separate blocks, blocks of "- " lines become lists,
 // a block starting with "### " is a subheading, and "![caption](path)" lines are illustrations
 // (one image per line, path relative to `public/`; several lines in a block make a carousel).
+// "@[caption](path)" lines are phone screens, shown side by side, and "[text](https://…)" is a link.
 function RichText({ text, className = '' }: { text: string; className?: string }) {
   const blocks = text.split(/\n\s*\n/).map((block) => block.trim()).filter(Boolean)
 
@@ -35,6 +63,10 @@ function RichText({ text, className = '' }: { text: string; className?: string }
           const list = images.map((match) => ({ alt: match![1], src: match![2] }))
           return list.length > 1 ? <Carousel key={index} images={list} /> : <Figure key={index} image={list[0]} />
         }
+        const screens = lines.map((line) => line.trim().match(SCREEN))
+        if (screens.every(Boolean)) {
+          return <Screens key={index} images={screens.map((match) => ({ alt: match![1], src: match![2] }))} />
+        }
         if (block.startsWith('### ')) {
           return (
             <h3 key={index} className="pt-2 text-lg font-bold text-text">
@@ -46,12 +78,12 @@ function RichText({ text, className = '' }: { text: string; className?: string }
           return (
             <ul key={index} className="list-disc space-y-1 pl-5 marker:text-accent-hover">
               {lines.map((line, i) => (
-                <li key={i}>{line.trim().slice(2)}</li>
+                <li key={i}>{inline(line.trim().slice(2))}</li>
               ))}
             </ul>
           )
         }
-        return <p key={index}>{block}</p>
+        return <p key={index}>{inline(block)}</p>
       })}
     </div>
   )
