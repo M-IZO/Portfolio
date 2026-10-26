@@ -1,6 +1,6 @@
 import { about } from '../data/about'
 import type { Lang } from './lang'
-import type { Localized } from '../types/content'
+import type { Localized, Project } from '../types/content'
 
 export function localize(value: Localized, lang: Lang) {
   return value[lang]
@@ -23,4 +23,14 @@ export function cvDownload(lang: Lang) {
     href: asset(localize(about.cv, lang)),
     fileName: `CV-${about.name.replace(/\s+/g, '-')}-${lang.toUpperCase()}.pdf`,
   }
+}
+
+export function projectYear(project: Project) {
+  return Number(project.date.start.slice(0, 4))
+}
+
+// "novembre 2024", or "novembre 2025 à mai 2026" for a period.
+export function formatPeriod({ start, end }: Project['date'], lang: Lang) {
+  if (!end) return formatMonth(start, lang)
+  return `${formatMonth(start, lang)} ${lang === 'fr' ? 'à' : 'to'} ${formatMonth(end, lang)}`
 }
