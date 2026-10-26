@@ -32,6 +32,19 @@ function inline(text: string) {
   return parts
 }
 
+// A video with its caption; the optional poster follows the path after a space.
+function VideoFigure({ alt, src }: LightboxImage) {
+  const [path, poster] = src.split(' ')
+  return (
+    <figure className="py-2">
+      <video controls preload="metadata" poster={poster ? asset(poster) : undefined} className="aspect-video w-full rounded-md bg-black shadow-card">
+        <source src={asset(path)} type="video/mp4" />
+      </video>
+      <figcaption className="mt-2 text-center text-sm">{alt}</figcaption>
+    </figure>
+  )
+}
+
 // A single illustration that opens full screen on click.
 function Figure({ image }: { image: LightboxImage }) {
   const [open, setOpen] = useState<number | null>(null)
@@ -50,6 +63,7 @@ function Figure({ image }: { image: LightboxImage }) {
 // Renders plain text: blank lines separate blocks, blocks of "- " lines become lists,
 // a block starting with "### " is a subheading, and "![caption](path)" lines are illustrations
 // (one image per line, path relative to `public/`; several lines in a block make a carousel).
+// A lone "![caption](video.mp4 poster.webp)" line is a video.
 // "@[caption](path)" lines are phone screens, shown side by side, and "[text](https://…)" is a link.
 function RichText({ text, className = '' }: { text: string; className?: string }) {
   const blocks = text.split(/\n\s*\n/).map((block) => block.trim()).filter(Boolean)
@@ -61,6 +75,7 @@ function RichText({ text, className = '' }: { text: string; className?: string }
         const images = lines.map((line) => line.trim().match(IMAGE))
         if (images.every(Boolean)) {
           const list = images.map((match) => ({ alt: match![1], src: match![2] }))
+          if (list.length === 1 && list[0].src.split(' ')[0].endsWith('.mp4')) return <VideoFigure key={index} {...list[0]} />
           return list.length > 1 ? <Carousel key={index} images={list} /> : <Figure key={index} image={list[0]} />
         }
         const screens = lines.map((line) => line.trim().match(SCREEN))

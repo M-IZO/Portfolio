@@ -35,11 +35,13 @@ export function formatPeriod({ start, end }: Project['date'], lang: Lang) {
   return `${formatMonth(start, lang)} ${lang === 'fr' ? 'à' : 'to'} ${formatMonth(end, lang)}`
 }
 
-// Every picture of the project page, in reading order: the images of the texts,
+// Every picture of the project page, in reading order: the images of the texts (videos aside),
 // then the extra ones listed in `gallery`, each only once.
 export function projectImages(project: Project, lang: Lang) {
   const text = `${localize(project.brief, lang)}\n${localize(project.description, lang)}`
-  const images = [...text.matchAll(/^[!@]\[(.*)\]\((.+)\)$/gm)].map((match) => ({ alt: match[1], src: match[2] }))
+  const images = [...text.matchAll(/^[!@]\[(.*)\]\((.+)\)$/gm)]
+    .map((match) => ({ alt: match[1], src: match[2] }))
+    .filter((image) => !image.src.split(' ')[0].endsWith('.mp4'))
   for (const image of project.gallery ?? []) {
     images.push({ alt: localize(image.alt, lang), src: image.src })
   }
