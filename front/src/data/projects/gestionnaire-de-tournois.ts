@@ -13,7 +13,7 @@ export const gestionnaireDeTournois: Project = {
   date: { start: '2024-11' },
   teamSize: 2,
   tags: ['database', 'dev'],
-  stack: ['MySQL', 'MariaDB', 'SQL', 'UML'],
+  stack: ['MySQL', 'MariaDB', 'SQL', 'PHP', 'Symfony', 'UML'],
   cover: `${dir}/cover.svg`,
   brief: {
     fr: `L'objectif de ce projet est de concevoir et de développer un système de base de données relationnelle pour gérer les tournois de jeux de société. Ce système permettra aux organisateurs d'enregistrer les joueurs, de planifier les matchs, de suivre les résultats et de gérer les scores pour divers jeux de société tels que les échecs, Les Colons de Catane, Les Aventuriers du Rail, ou tout autre jeu de plateau populaire. Le système prendra également en charge les jeux en équipe, suivra les performances individuelles ou d'équipe, et générera des classements.
@@ -46,7 +46,7 @@ Le parcours a servi à construire le schéma relationnel. Il relie les utilisate
 
 ### Site web
 
-Le site reprend ces pages avec une interface sombre. L'accueil présente les tournois en cours, chaque tournoi a sa page avec ses informations et le déroulement des matchs, et le classement des participants se met à jour avec les résultats. Chaque joueur dispose aussi d'une page Mon compte et de l'historique de ses tournois.
+Le site est développé en PHP avec le framework Symfony et reprend ces pages avec une interface sombre. L'accueil présente les tournois en cours, chaque tournoi a sa page avec ses informations et le déroulement des matchs, et le classement des participants se met à jour avec les résultats. Chaque joueur dispose aussi d'une page Mon compte et de l'historique de ses tournois.
 
 ![Liste des tournois](${dir}/gallery/1-tournois.webp)
 ![Page d'un tournoi et déroulement des matchs](${dir}/gallery/2-tournoi.webp)
@@ -71,7 +71,7 @@ The user flow was used to build the relational schema. It links users, their fav
 
 ### Website
 
-The website follows these pages with a dark interface. The home page shows the current tournaments, each tournament has its own page with its details and match schedule, and the participant rankings update with the results. Every player also has a My account page and the history of their tournaments.
+The website is built in PHP with the Symfony framework and follows these pages with a dark interface. The home page shows the current tournaments, each tournament has its own page with its details and match schedule, and the participant rankings update with the results. Every player also has a My account page and the history of their tournaments.
 
 ![Tournament list](${dir}/gallery/1-tournois.webp)
 ![Tournament page and match schedule](${dir}/gallery/2-tournoi.webp)
