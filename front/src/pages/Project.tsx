@@ -41,6 +41,7 @@ function ProjectDetail({ project }: { project: ProjectData }) {
 
   const gallery = project.gallery ?? []
   const videos = project.videos ?? []
+  const portrait = project.portrait ?? false
 
   const readingTime = (text: string) => {
     const words = text.replace(/!\[.*\]\(.+\)/g, '').split(/\s+/).filter(Boolean).length
@@ -118,7 +119,7 @@ function ProjectDetail({ project }: { project: ProjectData }) {
                 <h2 id="videos-title" className="text-2xl font-bold">
                   {t('project.videos')}
                 </h2>
-                <ul className="mt-4 grid gap-6">
+                <ul className={`mt-4 grid gap-6 ${portrait ? 'grid-cols-2 sm:grid-cols-3' : ''}`}>
                   {videos.map((video) => (
                     <li key={video.src}>
                       <figure>
@@ -126,7 +127,7 @@ function ProjectDetail({ project }: { project: ProjectData }) {
                           controls
                           preload="metadata"
                           poster={video.poster ? asset(video.poster) : undefined}
-                          className="aspect-video w-full rounded-md bg-black shadow-card"
+                          className={`w-full rounded-md bg-black shadow-card ${portrait ? 'aspect-[504/1094]' : 'aspect-video'}`}
                         >
                           <source src={asset(video.src)} type="video/mp4" />
                         </video>
@@ -145,7 +146,7 @@ function ProjectDetail({ project }: { project: ProjectData }) {
             <h2 id="gallery-title" className="text-2xl font-bold">
               {t('project.gallery')}
             </h2>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            <ul className={`mt-4 grid gap-3 ${portrait ? 'grid-cols-3 sm:grid-cols-4 xl:grid-cols-6' : 'sm:grid-cols-2 xl:grid-cols-3'}`}>
               {gallery.map((image, index) => (
                 <li key={image.src}>
                   <button
@@ -158,7 +159,7 @@ function ProjectDetail({ project }: { project: ProjectData }) {
                       src={asset(image.src)}
                       alt={localize(image.alt, lang)}
                       loading="lazy"
-                      className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100"
+                      className={`w-full object-cover transition-transform ${portrait ? 'aspect-[504/1094]' : 'aspect-video'} duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100`}
                     />
                   </button>
                 </li>
