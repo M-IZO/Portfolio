@@ -4,7 +4,7 @@ import { NavLink } from 'react-router'
 import { projects } from '../data/projects'
 import { getTag, tags } from '../data/tags'
 import { useLang } from '../hooks/useLang'
-import { asset, cvDownload, localize } from '../lib/content'
+import { asset, cvDownload, localize, projectYear } from '../lib/content'
 import type { TagId } from '../types/content'
 import ChipScroller from './ChipScroller'
 import { DownloadIcon, IdCardIcon, StackIcon, UserIcon } from './icons'
@@ -159,7 +159,7 @@ function Library({ collapsed = false, onToggle }: LibraryProps) {
                         <span className="min-w-0">
                           <span className={`block truncate ${isActive ? 'text-accent-hover' : 'text-text'}`}>{title}</span>
                           <span className="block truncate text-sm text-muted" title={tagLabels.join(', ')}>
-                            {project.year} · {tagLabels.join(', ')}
+                            {projectYear(project)} · {tagLabels.join(', ')}
                           </span>
                         </span>
                       )}
