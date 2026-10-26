@@ -68,7 +68,7 @@ function Shell({ lang }: { lang: Lang }) {
         >
           <Library collapsed={collapsed} onToggle={toggleSidebar} />
         </aside>
-        <main ref={mainRef} className="flex min-w-0 flex-1 flex-col overflow-y-auto rounded-lg bg-surface">
+        <main ref={mainRef} className="relative flex min-w-0 flex-1 flex-col overflow-y-auto rounded-lg bg-surface">
           <Outlet />
         </main>
       </div>
