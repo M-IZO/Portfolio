@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { getTag } from '../data/tags'
 import { useLang } from '../hooks/useLang'
-import { asset, localize } from '../lib/content'
+import { asset, localize, projectYear } from '../lib/content'
 import type { Project } from '../types/content'
 
 // Shared column layout for the project rows and their header.
@@ -24,7 +24,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <span className="block truncate text-sm text-muted">{localize(project.tagline, lang)}</span>
       </span>
       <span className="hidden truncate text-sm text-muted md:block">{tagLabels.join(', ')}</span>
-      <span className="hidden text-right text-sm text-muted tabular-nums md:block">{project.year}</span>
+      <span className="hidden text-right text-sm text-muted tabular-nums md:block">{projectYear(project)}</span>
     </Link>
   )
 }
