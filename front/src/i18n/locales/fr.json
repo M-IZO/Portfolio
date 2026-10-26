@@ -94,6 +94,7 @@
     "images_other": "{{count}} images",
     "videosCount_one": "{{count}} vidéo",
     "videosCount_other": "{{count}} vidéos",
+    "ongoing": "En cours",
     "section": "Section",
     "nowViewing": "En cours",
     "about": "À propos du projet",

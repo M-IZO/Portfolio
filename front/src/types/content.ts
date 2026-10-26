@@ -31,6 +31,7 @@ export interface Project {
     end?: string // YYYY-MM, only for projects spread over several months
   }
   teamSize: number
+  ongoing?: boolean // still in progress, shown with a badge
   tags: TagId[]
   stack: string[]
   // Paths relative to `public/`, resolved with `asset()`.
