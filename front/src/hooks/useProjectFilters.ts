@@ -23,6 +23,7 @@ function matches(project: Project, query: string, lang: Lang) {
     localize(project.tagline, lang),
     ...project.tags.map((id) => localize(getTag(id).label, lang)),
     ...project.stack,
+    project.course,
   ]
   return haystack.some((text) => normalize(text).includes(query))
 }
@@ -31,13 +32,13 @@ function compare(sort: Sort, lang: Lang) {
   return (a: Project, b: Project) => {
     switch (sort) {
       case 'oldest':
-        return a.year - b.year
+        return a.date.start.localeCompare(b.date.start)
       case 'az':
         return localize(a.title, lang).localeCompare(localize(b.title, lang), lang)
       case 'za':
         return localize(b.title, lang).localeCompare(localize(a.title, lang), lang)
       default:
-        return b.year - a.year
+        return b.date.start.localeCompare(a.date.start)
     }
   }
 }
