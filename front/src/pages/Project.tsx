@@ -7,7 +7,7 @@ import RichText from '../components/RichText'
 import { getProject } from '../data/projects'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useLang } from '../hooks/useLang'
-import { asset, localize } from '../lib/content'
+import { asset, localize, projectImages } from '../lib/content'
 import type { Project as ProjectData } from '../types/content'
 import NotFound from './NotFound'
 
@@ -39,7 +39,7 @@ function ProjectDetail({ project }: { project: ProjectData }) {
   const title = localize(project.title, lang)
   useDocumentTitle(title)
 
-  const gallery = project.gallery ?? []
+  const gallery = projectImages(project, lang)
   const videos = project.videos ?? []
   const portrait = project.portrait ?? false
 
@@ -146,9 +146,9 @@ function ProjectDetail({ project }: { project: ProjectData }) {
             <h2 id="gallery-title" className="text-2xl font-bold">
               {t('project.gallery')}
             </h2>
-            <ul className={`mt-4 grid gap-3 ${portrait ? 'grid-cols-3 sm:grid-cols-4 xl:grid-cols-6' : 'sm:grid-cols-2 xl:grid-cols-3'}`}>
+            <ul className="mt-4 columns-2 gap-3 sm:columns-3 xl:columns-4">
               {gallery.map((image, index) => (
-                <li key={image.src}>
+                <li key={image.src} className="mb-3 break-inside-avoid">
                   <button
                     type="button"
                     onClick={() => setImageIndex(index)}
@@ -157,16 +157,16 @@ function ProjectDetail({ project }: { project: ProjectData }) {
                   >
                     <img
                       src={asset(image.src)}
-                      alt={localize(image.alt, lang)}
+                      alt={image.alt}
                       loading="lazy"
-                      className={`w-full object-cover transition-transform ${portrait ? 'aspect-[504/1094]' : 'aspect-video'} duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100`}
+                      className="block h-auto w-full transition-transform duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100"
                     />
                   </button>
                 </li>
               ))}
             </ul>
             <Lightbox
-              images={gallery.map((image) => ({ src: image.src, alt: localize(image.alt, lang) }))}
+              images={gallery}
               index={imageIndex}
               onChange={setImageIndex}
             />
