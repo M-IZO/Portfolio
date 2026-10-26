@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Outlet, useLocation, useParams } from 'react-router'
 import Drawer from '../components/Drawer'
+import Footer from '../components/Footer'
 import Library from '../components/Library'
 import TopBar from '../components/TopBar'
 import { useSyncLang } from '../hooks/useLang'
@@ -70,6 +71,7 @@ function Shell({ lang }: { lang: Lang }) {
         </aside>
         <main ref={mainRef} className="relative flex min-w-0 flex-1 flex-col overflow-y-auto rounded-lg bg-surface">
           <Outlet />
+          <Footer />
         </main>
       </div>
 
