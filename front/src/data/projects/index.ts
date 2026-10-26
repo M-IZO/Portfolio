@@ -4,12 +4,13 @@ import { dofusArena } from './dofus-arena'
 import { electionPresidentielle } from './election-presidentielle'
 import { gestionnaireDeTournois } from './gestionnaire-de-tournois'
 import { presentationReact } from './presentation-react'
+import { sallesOperatoires } from './salles-operatoires'
 import { sudoku } from './sudoku'
 import { synthetiseur } from './synthetiseur'
 import { visualiseurCgshop } from './visualiseur-cgshop'
 
 // One file per project; add new ones to the list below.
-const all: Project[] = [gestionnaireDeTournois, electionPresidentielle, sudoku, betterboxd, visualiseurCgshop, synthetiseur, dofusArena, presentationReact]
+const all: Project[] = [gestionnaireDeTournois, electionPresidentielle, sudoku, betterboxd, visualiseurCgshop, synthetiseur, dofusArena, presentationReact, sallesOperatoires]
 
 // Newest first.
 export const projects = [...all].sort((a, b) => b.date.start.localeCompare(a.date.start))
