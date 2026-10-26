@@ -54,7 +54,7 @@ function Carousel({ images }: { images: LightboxImage[] }) {
           aria-label={`${t('project.openImage', { number: index + 1 })}. ${image.alt}`}
           className={`block w-full touch-pan-y ${focusRing}`}
         >
-          <img src={asset(image.src)} alt={image.alt} draggable={false} className="aspect-video w-full object-contain select-none" />
+          <img src={asset(image.src)} alt={image.alt} draggable={false} className="aspect-video w-full object-scale-down select-none" />
         </button>
         <button type="button" onClick={() => show(index - 1)} aria-label={t('lightbox.previous')} className={`${arrow} left-3`}>
           <ChevronIcon direction="left" className="size-5" />
