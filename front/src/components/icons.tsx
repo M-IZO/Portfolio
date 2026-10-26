@@ -193,3 +193,17 @@ export function HobbyIcon({ name, className = 'size-5' }: IconProps & { name: Ho
     </svg>
   )
 }
+
+// Owl logo, same drawing as public/favicon.svg (SVG Repo).
+export function OwlIcon({ className = 'size-6' }: IconProps) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
+      <circle cx="16" cy="12" r="9" />
+      <path d="M20.5 4.2C19.2 3.4 17.6 3 16 3s-3.2.4-4.5 1.2C14.2 5.8 16 8.7 16 12c0-3.3 1.8-6.2 4.5-7.8z" />
+      <circle cx="12" cy="12" r="1" />
+      <circle cx="20" cy="12" r="1" />
+      <path d="M16.1 21c2.2 2.3 5.4 3.8 8.9 3.8V12" />
+      <path d="M7 12c0 9 9.7 17 19 17" />
+    </svg>
+  )
+}

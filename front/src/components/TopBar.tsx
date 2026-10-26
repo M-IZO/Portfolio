@@ -2,15 +2,10 @@ import { useTranslation } from 'react-i18next'
 import { Link, NavLink } from 'react-router'
 import { about } from '../data/about'
 import { useLang } from '../hooks/useLang'
-import { HomeIcon, MenuIcon } from './icons'
+import { HomeIcon, MenuIcon, OwlIcon } from './icons'
 import LanguageToggle from './LanguageToggle'
 import SearchBar from './SearchBar'
 import ThemeToggle from './ThemeToggle'
-
-const initials = about.name
-  .split(' ')
-  .map((word) => word[0])
-  .join('')
 
 const roundButton =
   'inline-flex shrink-0 items-center justify-center rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-accent'
@@ -31,8 +26,8 @@ function TopBar({ onOpenMenu }: { onOpenMenu: () => void }) {
           <MenuIcon />
         </button>
         <Link to={`/${lang}`} className="flex items-center gap-3 rounded-md focus-visible:outline-2 focus-visible:outline-accent">
-          <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-sm font-black text-white">
-            {initials}
+          <span className="flex size-9 items-center justify-center rounded-full bg-white text-black">
+            <OwlIcon className="size-6" />
           </span>
           <span className="hidden font-bold sm:inline">{about.name}</span>
         </Link>
