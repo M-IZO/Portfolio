@@ -32,6 +32,7 @@ export interface Project {
   }
   teamSize: number
   ongoing?: boolean // still in progress, shown with a badge
+  hidden?: boolean // kept in the code but left out of the site
   tags: TagId[]
   stack: string[]
   // Paths relative to `public/`, resolved with `asset()`.

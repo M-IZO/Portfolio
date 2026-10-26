@@ -13,6 +13,7 @@ export const synthetiseur: Project = {
   course: 'ECE ING1',
   date: { start: '2022-04' },
   teamSize: 3,
+  hidden: true,
   tags: ['electronics', 'dev'],
   stack: ['Arduino', 'C++', 'Processing', 'Proteus', 'NE555', 'Fritzing'],
   cover: `${dir}/cover.svg`,

@@ -12,6 +12,7 @@ export const dofusArena: Project = {
   course: 'ECE ING1',
   date: { start: '2022-12' },
   teamSize: 2,
+  hidden: true,
   tags: ['dev'],
   stack: ['C', 'Allegro 5', 'Photoshop', 'Whimsical', 'GitHub'],
   cover: `${dir}/cover.svg`,
