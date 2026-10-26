@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 import ChipScroller from '../components/ChipScroller'
-import { BriefcaseIcon, CalendarIcon, ClockIcon } from '../components/icons'
+import { BriefcaseIcon, CalendarIcon, ClockIcon, PinIcon } from '../components/icons'
 import ProjectCard, { projectRowColumns } from '../components/ProjectCard'
 import { about } from '../data/about'
 import { featured, projects } from '../data/projects'
@@ -141,6 +141,9 @@ function Home() {
               <span>{t('home.columns.title')}</span>
               <span className="hidden md:block">{t('home.columns.tags')}</span>
               <span className="hidden text-right md:block">{t('home.columns.year')}</span>
+              <span className="flex justify-center" title={t('home.featured')}>
+                <PinIcon />
+              </span>
             </div>
             <ul className="mt-2 flex flex-col">
               {results.map((project, index) => (

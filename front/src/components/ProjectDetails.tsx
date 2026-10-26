@@ -100,7 +100,7 @@ function ProjectDetails({ project, contents, activeId, onSelect }: Props) {
         <div className="min-w-0">
           <p className="text-xl font-bold">
             {project.course}
-            {project.ongoing && <span className="ml-2 inline-block rounded-full bg-accent px-2 py-0.5 align-middle text-xs font-bold text-white">{t('project.ongoing')}</span>}
+            {project.ongoing && <span className="ml-2 inline-flex items-center gap-1.5 align-middle text-xs font-medium text-accent-hover"><span aria-hidden="true" className="size-1.5 rounded-full bg-accent-hover" />{t('project.ongoing')}</span>}
           </p>
           {project.date.end && <p className="text-sm text-muted first-letter:uppercase">{period}</p>}
           <p className="mt-1 text-sm">{team}</p>
