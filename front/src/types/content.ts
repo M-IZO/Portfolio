@@ -2,7 +2,7 @@ import type { Lang } from '../lib/lang'
 
 export type Localized = Record<Lang, string>
 
-export type TagId = 'database' | 'dev' | 'design' | 'ai' | 'data-science' | 'data-viz' | 'cloud' | 'mlops'
+export type TagId = 'database' | 'dev' | 'design' | 'electronics' | 'ai' | 'data-science' | 'data-viz' | 'cloud' | 'mlops'
 
 export interface Tag {
   id: TagId
@@ -41,6 +41,7 @@ export interface Project {
   description: Localized
   // Optional sections, hidden when absent or empty.
   videos?: ProjectVideo[]
+  // The gallery shows every image of the texts; list here only the extra ones.
   gallery?: GalleryImage[]
 }
 

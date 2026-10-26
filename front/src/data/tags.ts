@@ -5,6 +5,7 @@ export const tags: Tag[] = [
   { id: 'ai', label: { en: 'AI', fr: 'IA' } },
   { id: 'dev', label: { en: 'Dev', fr: 'Dev' } },
   { id: 'design', label: { en: 'UX Design', fr: 'Design UX' } },
+  { id: 'electronics', label: { en: 'Electronics', fr: 'Électronique' } },
   { id: 'database', label: { en: 'Database', fr: 'Base de données' } },
   { id: 'data-viz', label: { en: 'Data Viz', fr: 'Data Viz' } },
   { id: 'cloud', label: { en: 'Cloud', fr: 'Cloud' } },
