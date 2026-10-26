@@ -1,3 +1,4 @@
+import type { HobbyIconName } from '../components/icons'
 import type { Lang } from '../lib/lang'
 
 export type Localized = Record<Lang, string>
@@ -58,12 +59,24 @@ export interface TimelineItem {
   end?: string // YYYY-MM, absent when ongoing
   description: Localized
   stack?: string[]
+  project?: string // slug of the matching project page, linked once it exists
+}
+
+export interface Language {
+  name: Localized
+  level: Localized
+}
+
+export interface HobbyGroup {
+  icon: HobbyIconName
+  name: Localized
+  items: Localized[]
 }
 
 export interface Certification {
   name: string
   issuer: string
-  date: string // YYYY-MM
+  date?: string // YYYY-MM
   url?: string
 }
 
@@ -72,12 +85,12 @@ export interface About {
   title: Localized
   shortBio: Localized
   bio: Localized
-  mainSkills: string[]
   skills: SkillGroup[]
+  languages: Language[]
   experience: TimelineItem[]
   education: TimelineItem[]
   certifications: Certification[]
-  hobbies: Localized[]
+  hobbies: HobbyGroup[]
   availability: {
     position: Localized
     duration: Localized

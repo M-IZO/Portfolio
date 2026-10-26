@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { DownloadIcon, ExternalLinkIcon, GitHubIcon, LinkedInIcon } from '../components/icons'
+import { Link } from 'react-router'
+import { DownloadIcon, ExternalLinkIcon, GitHubIcon, HobbyIcon, LinkedInIcon } from '../components/icons'
 import RichText from '../components/RichText'
 import { about } from '../data/about'
+import { getProject } from '../data/projects'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useLang } from '../hooks/useLang'
 import { cvDownload, formatMonth, localize } from '../lib/content'
@@ -30,9 +32,19 @@ function Timeline({ items, lang, present }: { items: TimelineItem[]; lang: Lang;
         <li key={`${item.place}-${item.start}`} className="relative">
           <span aria-hidden="true" className="absolute top-1.5 -left-[1.95rem] size-3 rounded-full border-2 border-bg bg-accent-hover" />
           <p className="text-sm text-muted first-letter:uppercase">
-            {formatMonth(item.start, lang)} – {item.end ? formatMonth(item.end, lang) : present}
+            {item.end === item.start
+              ? formatMonth(item.start, lang)
+              : `${formatMonth(item.start, lang)} – ${item.end ? formatMonth(item.end, lang) : present}`}
           </p>
-          <h3 className="mt-1 text-lg font-bold">{localize(item.title, lang)}</h3>
+          <h3 className="mt-1 text-lg font-bold">
+            {item.project && getProject(item.project) ? (
+              <Link to={`/${lang}/projects/${item.project}`} className={`underline decoration-text/30 underline-offset-4 transition-colors hover:decoration-text ${focusRing}`}>
+                {localize(item.title, lang)}
+              </Link>
+            ) : (
+              localize(item.title, lang)
+            )}
+          </h3>
           <p className="text-sm">
             {item.place} <span className="text-muted">· {localize(item.location, lang)}</span>
           </p>
@@ -58,6 +70,10 @@ function About() {
   useDocumentTitle(t('nav.about'))
 
   const cv = cvDownload(lang)
+  // One line per skill category.
+  const skillRows = [
+    ...about.skills.map((group) => ({ name: localize(group.name, lang), items: group.skills })),
+  ]
 
   return (
     <div className="flex-1 pb-12">
@@ -84,69 +100,87 @@ function About() {
 
       <div className="space-y-12 px-6 md:px-8">
         <Section id="bio-title" title={t('about.bio')}>
-          <RichText text={localize(about.bio, lang)} className="max-w-3xl leading-relaxed text-muted" />
+          <RichText text={localize(about.bio, lang)} className="leading-relaxed text-muted" />
         </Section>
 
         <Section id="skills-title" title={t('about.skills')}>
-          <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {about.skills.map((group) => (
-              <li key={group.name.en} className="rounded-lg border-2 border-text/15 p-5">
-                <h3 className="font-bold">{localize(group.name, lang)}</h3>
-                <ul className="mt-3 flex flex-wrap gap-1.5">
-                  {group.skills.map((skill) => (
-                    <li key={skill} className="rounded-full bg-elevated px-3 py-1 text-sm shadow-card">
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
+          <dl className="divide-y divide-text/10">
+            {skillRows.map((row) => (
+              <div key={row.name} className="grid gap-1 py-3 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-4">
+                <dt className="font-bold">{row.name}</dt>
+                <dd className="text-muted">{row.items.join(' · ')}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+
+        <Section id="languages-title" title={t('about.languages')}>
+          <ul className="flex flex-wrap gap-x-16 gap-y-4">
+            {about.languages.map((language) => (
+              <li key={language.name.en}>
+                <p className="text-lg font-bold">{localize(language.name, lang)}</p>
+                <p className="text-sm text-muted">{localize(language.level, lang)}</p>
               </li>
             ))}
           </ul>
         </Section>
 
-        <Section id="experience-title" title={t('about.experience')}>
-          <Timeline items={about.experience} lang={lang} present={t('about.present')} />
-        </Section>
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-x-24">
+          <Section id="experience-title" title={t('about.experience')}>
+            <Timeline items={about.experience} lang={lang} present={t('about.present')} />
+          </Section>
 
-        <Section id="education-title" title={t('about.education')}>
-          <Timeline items={about.education} lang={lang} present={t('about.present')} />
-        </Section>
+          <Section id="education-title" title={t('about.education')}>
+            <Timeline items={about.education} lang={lang} present={t('about.present')} />
+          </Section>
+        </div>
 
-        <Section id="certifications-title" title={t('about.certifications')}>
-          <ul className="divide-y divide-text/10">
-            {about.certifications.map((certification) => (
-              <li key={certification.name} className="flex flex-wrap items-center justify-between gap-3 py-3">
-                <div>
-                  <p className="font-bold">{certification.name}</p>
-                  <p className="text-sm text-muted first-letter:uppercase">
-                    {certification.issuer} · {formatMonth(certification.date, lang)}
-                  </p>
-                </div>
-                {certification.url && (
-                  <a
-                    href={certification.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`inline-flex items-center gap-1.5 text-sm font-bold text-accent-hover hover:underline ${focusRing}`}
-                  >
-                    {t('about.viewCertificate')}
-                    <ExternalLinkIcon />
-                    <span className="sr-only">({t('about.newTab')})</span>
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </Section>
+        {about.certifications.length > 0 && (
+          <Section id="certifications-title" title={t('about.certifications')}>
+            <ul className="divide-y divide-text/10">
+              {about.certifications.map((certification) => (
+                <li key={certification.name} className="flex flex-wrap items-center justify-between gap-3 py-3">
+                  <div>
+                    <p className="font-bold">{certification.name}</p>
+                    <p className="text-sm text-muted first-letter:uppercase">
+                      {certification.issuer}
+                      {certification.date && ` · ${formatMonth(certification.date, lang)}`}
+                    </p>
+                  </div>
+                  {certification.url && (
+                    <a
+                      href={certification.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`inline-flex items-center gap-1.5 text-sm font-bold text-accent-hover hover:underline ${focusRing}`}
+                    >
+                      {t('about.viewCertificate')}
+                      <ExternalLinkIcon />
+                      <span className="sr-only">({t('about.newTab')})</span>
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
 
         <Section id="hobbies-title" title={t('about.hobbies')}>
-          <ul className="flex flex-wrap gap-2">
-            {about.hobbies.map((hobby) => (
-              <li key={hobby.en} className="rounded-full bg-elevated px-4 py-1.5 shadow-card">
-                {localize(hobby, lang)}
-              </li>
+          <div className="flex flex-wrap gap-x-16 gap-y-8">
+            {about.hobbies.map((group) => (
+              <div key={group.name.en}>
+                <h3 className="flex items-center gap-2 font-bold">
+                  <HobbyIcon name={group.icon} className="size-5 text-muted" />
+                  {localize(group.name, lang)}
+                </h3>
+                <ul className="mt-2 space-y-1 text-muted">
+                  {group.items.map((item) => (
+                    <li key={item.en}>{localize(item, lang)}</li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </Section>
       </div>
     </div>
