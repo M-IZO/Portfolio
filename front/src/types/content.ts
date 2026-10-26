@@ -2,7 +2,7 @@ import type { Lang } from '../lib/lang'
 
 export type Localized = Record<Lang, string>
 
-export type TagId = 'database' | 'dev' | 'ai' | 'data-science' | 'data-viz' | 'cloud' | 'mlops'
+export type TagId = 'database' | 'dev' | 'design' | 'ai' | 'data-science' | 'data-viz' | 'cloud' | 'mlops'
 
 export interface Tag {
   id: TagId
@@ -34,6 +34,8 @@ export interface Project {
   stack: string[]
   // Paths relative to `public/`, resolved with `asset()`.
   cover: string
+  // Gallery images and videos are phone screens (portrait) instead of landscape.
+  portrait?: boolean
   // Rich text: blank line between blocks, "- " for list items, "### " for a subheading.
   brief: Localized
   description: Localized
