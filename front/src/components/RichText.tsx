@@ -12,7 +12,7 @@ function Figure({ image }: { image: LightboxImage }) {
   return (
     <figure className="py-2">
       <button type="button" onClick={() => setOpen(0)} className="block w-full focus-visible:outline-2 focus-visible:outline-accent">
-        <img src={asset(image.src)} alt={image.alt} loading="lazy" className="w-full rounded-md shadow-card" />
+        <img src={asset(image.src)} alt={image.alt} loading="lazy" className="mx-auto block h-auto max-w-full rounded-md shadow-card" />
       </button>
       <figcaption className="mt-2 text-center text-sm">{image.alt}</figcaption>
       <Lightbox images={[image]} index={open} onChange={setOpen} />
