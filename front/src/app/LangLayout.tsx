@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Library from '../components/Library'
 import TopBar from '../components/TopBar'
 import { useSyncLang } from '../hooks/useLang'
+import { countVisit } from '../lib/analytics'
 import { isLang, type Lang } from '../lib/lang'
 import { StandaloneNotFound } from '../pages/NotFound'
 
@@ -52,9 +53,10 @@ function Shell({ lang }: { lang: Lang }) {
     setCollapsed(!collapsed)
   }
 
-  // The main panel scrolls on its own, so reset it on page change.
+  // The main panel scrolls on its own, so reset it on page change, and count the visit.
   useEffect(() => {
     mainRef.current?.scrollTo(0, 0)
+    countVisit(pathname)
   }, [pathname])
 
   return (
