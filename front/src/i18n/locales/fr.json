@@ -44,6 +44,7 @@
   "aboutLink": {
     "title": "Bio",
     "subtitle": "Parcours, compétences et CV",
+    "homeSubtitle": "Projets à la une et disponibilité",
     "downloadCv": "Télécharger le CV"
   },
   "home": {

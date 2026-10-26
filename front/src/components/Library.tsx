@@ -7,7 +7,7 @@ import { useLang } from '../hooks/useLang'
 import { asset, cvDownload, localize, projectYear } from '../lib/content'
 import type { TagId } from '../types/content'
 import ChipScroller from './ChipScroller'
-import { DownloadIcon, IdCardIcon, StackIcon, UserIcon } from './icons'
+import { DownloadIcon, HomeIcon, IdCardIcon, StackIcon, UserIcon } from './icons'
 
 // Only offer tags that at least one project uses.
 const usedTags = tags.filter((tag) => projects.some((project) => project.tags.includes(tag.id)))
@@ -44,12 +44,49 @@ function Library({ collapsed = false, onToggle }: LibraryProps) {
   return (
     <div className="flex h-full flex-col gap-2">
       <section aria-label={t('nav.about')} className="shrink-0 rounded-lg bg-surface p-2">
-        {!collapsed && (
-          <h2 className="flex items-center gap-3 px-3 pt-3 pb-3 font-bold text-muted">
-            <IdCardIcon />
-            <span>{t('nav.about')}</span>
-          </h2>
+        {onToggle ? (
+          <div className={`flex pt-2 pb-2 ${collapsed ? 'justify-center' : 'px-2'}`}>
+            <button
+              type="button"
+              onClick={onToggle}
+              aria-label={collapsed ? t('library.expand') : t('library.collapse')}
+              aria-expanded={!collapsed}
+              title={collapsed ? t('library.expand') : t('library.collapse')}
+              className={`flex items-center gap-3 rounded-md p-1 font-bold text-muted transition-colors hover:text-text ${focusRing}`}
+            >
+              <IdCardIcon />
+              {!collapsed && <span>{t('nav.about')}</span>}
+            </button>
+          </div>
+        ) : (
+          !collapsed && (
+            <h2 className="flex items-center gap-3 px-3 pt-3 pb-3 font-bold text-muted">
+              <IdCardIcon />
+              <span>{t('nav.about')}</span>
+            </h2>
+          )
         )}
+        <NavLink
+          to={`/${lang}`}
+          end
+          title={collapsed ? t('nav.home') : undefined}
+          aria-label={collapsed ? t('nav.home') : undefined}
+          className={({ isActive }) => `${rowClass(isActive)} mb-0.5`}
+        >
+          {({ isActive }) => (
+            <>
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-md bg-elevated text-text">
+                <HomeIcon />
+              </span>
+              {!collapsed && (
+                <span className="min-w-0">
+                  <span className={`block truncate ${isActive ? 'text-accent-hover' : 'text-text'}`}>{t('nav.home')}</span>
+                  <span className="block truncate text-sm text-muted">{t('aboutLink.homeSubtitle')}</span>
+                </span>
+              )}
+            </>
+          )}
+        </NavLink>
         <div className="relative">
           <NavLink
             to={`/${lang}/about`}
@@ -59,7 +96,7 @@ function Library({ collapsed = false, onToggle }: LibraryProps) {
           >
             {({ isActive }) => (
               <>
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-accent-hover to-accent text-white">
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-md bg-accent text-white">
                   <UserIcon />
                 </span>
                 {!collapsed && (
